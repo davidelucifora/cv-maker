@@ -1,13 +1,31 @@
 import React from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { render } from 'react-dom'
 import './App.css'
+import { Contact } from './components/contact'
+import { Education } from './components/education'
+import { Experience } from './components/experience'
+import { Header } from './components/header'
+import { Languages } from './components/languages'
+import { Summary } from './components/summary'
 
 class App extends React.Component {
   render() {
     return (
-      <h1></h1>
+      <div id="App" className="App">
+        <Header 
+        fullName = "Davide Lucifora"
+        jobTitle = "SaaS Account Executive"/>
+        <div className="sidebar">
+          <Contact />
+          <Education />
+          <Languages />
+        </div>
+        <div className="main-section">
+          <Summary />
+          <Experience />
+        </div>
+      </div>
     )
   }
 }
