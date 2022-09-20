@@ -78,8 +78,41 @@
 .contact-card{
   display:flex;
   align-items:center;
+  margin-bottom:1rem;
 }
 
 .contact-icon{
-  margin-right:1rem;
+  margin-right:0.5rem;
+}
+.contact-card-value{
+  margin:0;
+  color:var(--main-blue);
+  font-weight:600;
+}
+
+/* Education Card Styles */
+
+.education-card > * {
+  margin:0;
+}
+
+/* Language Card Styling*/
+
+.language-card ul{
+  padding:0;
+  list-style-type:none;
+  display:inline
+}
+
+/* Summary Styles */
+.main-content-card {
+  text-align:left;
+  max-width:80%;
+  margin:10% auto;
+}
+
+.main-content-heading {
+  color:var(--main-blue);
+  font-weight:400;
+  font-size:3rem;
 }

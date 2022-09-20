@@ -4,7 +4,10 @@ import React from 'react'
 class Experience extends React.Component {
     render() {
       return (
-        <h1>experience</h1>
+        <div className="main-content-card">
+        <h1 className="main-content-heading">Experience</h1>
+        <p>Code Experience cards here</p>
+        </div>
       )
     }
   }

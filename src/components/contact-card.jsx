@@ -6,7 +6,7 @@ class ContactCard extends React.Component{
 
         return (
             <div className="contact-card">
-            <span className="contact-icon">{this.props.icon}</span>
+            <img className="contact-icon" src={this.props.icon} width="24" height="24" />
             <p className="contact-card-value">{this.props.contactValue}</p>
         </div>
         

@@ -22,7 +22,8 @@ class App extends React.Component {
           <Languages />
         </div>
         <div className="main-section">
-          <Summary />
+          <Summary 
+          summary="Lorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava letta"/>
           <Experience />
         </div>
       </div>

@@ -3,7 +3,10 @@ import React from 'react'
 class Summary extends React.Component {
     render() {
       return (
-        <h1>Summary</h1>
+        <div className="main-content-card">
+        <h1 className="main-content-heading">Summary</h1>
+        <p>{this.props.summary}</p>
+        </div>
       )
     }
   }

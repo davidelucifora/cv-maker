@@ -1,9 +1,15 @@
 import React from 'react'
+import {LanguageCard} from './language-card'
 
 class Languages extends React.Component {
     render() {
       return (
-        <h1>Languages</h1>
+        <div className="side-card">
+          <h2>Languages</h2>
+          <LanguageCard 
+          language="English"
+          languageLevel="Fluent"/>
+        </div>
       )
     }
   }
