@@ -26,6 +26,9 @@ class App extends React.Component {
           summary="Lorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava letta"/>
           <Experience />
         </div>
+        <div className="controls">
+          <button className="submit-cv-btn">Submit CV</button>
+        </div>
       </div>
     )
   }

@@ -1,21 +1,22 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
   --main-blue:#225A7A;
+  max-width:1288px;
+  margin:0 auto;
 }
 
 .App {
+  padding:5% 20%;
   min-width:585px;
   display:grid;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
   'header header'
   'sidebar content'
+  'controls controls'
 }
 
-/*Style Header*/
+/* Header */
 
 #header {
   display:flex;
@@ -40,12 +41,33 @@
   margin-left:2rem;
   margin-bottom:3rem;
   color:#fefefe;
+  display:flex;
+  flex-flow:column;
+  justify-content:flex-start;
 }
 
-#name-title-wrapper h1 {
+#name-title-wrapper .fullname-input{
   font-size:4rem;
-  margin-bottom:1rem;
   font-weight:500;
+  background:transparent;
+  outline:none;
+  border:none;
+  color:white;
+  margin:0;
+  padding:0;
+}
+
+.header-job-title{
+  color:white;
+  font-size:1.3rem;
+  width:auto;
+}
+
+.editable-field{
+  cursor:pointer;
+  background:transparent;
+  outline:none;
+  border:none;
 }
 
 #name-title-wrapper h3 {
@@ -53,7 +75,7 @@
   word-spacing: 0.1rem;
 }
 
-/* Style Sidebar */
+/* Sidebar */
 
 .sidebar{
   grid-area: sidebar;
@@ -90,13 +112,13 @@
   font-weight:600;
 }
 
-/* Education Card Styles */
+/* Education Card */
 
 .education-card > * {
   margin:0;
 }
 
-/* Language Card Styling*/
+/* Language Card */
 
 .language-card ul{
   padding:0;
@@ -104,15 +126,29 @@
   display:inline
 }
 
-/* Summary Styles */
+/*Main Content */
+
+.main-content-heading {
+  color:var(--main-blue);
+  font-weight:400;
+  font-size:3rem;
+}
+
+/* Summary Section */
 .main-content-card {
   text-align:left;
   max-width:80%;
   margin:10% auto;
 }
 
-.main-content-heading {
-  color:var(--main-blue);
-  font-weight:400;
-  font-size:3rem;
+/* Experience Section */
+
+.experience-card > * {
+  margin:0;
+}
+
+.years-in-company{
+  font-weight:200;
+  margin-left:0.5rem;
+
 }
