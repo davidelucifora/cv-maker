@@ -1,65 +1,77 @@
-import React from 'react'
+import React from "react";
+import cameraIcon from "./../assets//icons/camera.svg";
 
 class Header extends React.Component {
-
   state = {
-    fullName : {
-      value: 'John Smith',
-      isEditing: false
+    fullName: {
+      value: "John Smith",
+      isEditing: false,
     },
-    jobTitle : {
-      value: 'Front End Developer',
-      isEditing: false
-    }
-  }
+    jobTitle: {
+      value: "Front End Developer",
+      isEditing: false,
+    },
+    profilePic: {
+      url: "https://xsgames.co/randomusers/avatar.php?g=male",
+      isEditing: false,
+    },
+  };
 
   handleChange(e) {
-
-    const {name, value} = e.target
+    const { name, value } = e.target;
 
     this.setState({
       ...this.state,
-      [name] : {
+      [name]: {
         value: value,
-        isEditing: true
-      }
-
-    })
-
-
+        isEditing: true,
+      },
+    });
   }
 
-    render() {
-      return (
-        <div id="header">
-            <img src="https://xsgames.co/randomusers/avatar.php?g=male" 
-            alt={this.state.fullName.value} 
-            className="profile-pic" 
-            width="150px" heigh="150px"/>
-            
-            <div id="name-title-wrapper">
-                <input 
-                className="fullname-input editable-field"
-                type="text" 
-                name="fullName"
-                onChange={e => this.handleChange(e)}
-                aria-label="Name"
-                value={this.state.fullName.value}>
-                </input>
-                <input
-                className="editable-field header-job-title"
-                value={this.state.jobTitle.value}
-                name="jobTitle"
-                onChange={e => this.handleChange(e)}
-                aria-label="Job Title"                
-                >
-                  
-                </input>
-            </div>
+  handleUploadImg() {
+    this.setState({
+      ...this.state,
+      ...this.state.profilePic,
+      isEditing: true,
+    });
+  }
+
+  render() {
+    return (
+      <div id="header">
+        <div className="profile-pic">
+          <img
+            src={this.state.profilePic.url}
+            onClick={(e) => this.handleUploadImg(e)}
+            alt={this.state.fullName.value}
+            width="150px"
+            heigh="150px"
+          />
+          <div className="profile-pic-overlay">
+            <img src={cameraIcon} />
+          </div>
         </div>
-      )
-    }
+        <div id="name-title-wrapper">
+          <input
+            className="fullname-input editable-field"
+            type="text"
+            name="fullName"
+            onChange={(e) => this.handleChange(e)}
+            aria-label="Name"
+            value={this.state.fullName.value}
+          ></input>
+          <input
+            className="editable-field header-job-title"
+            value={this.state.jobTitle.value}
+            name="jobTitle"
+            onChange={(e) => this.handleChange(e)}
+            aria-label="Job Title"
+          ></input>
+        </div>
+      </div>
+    );
   }
-  
+}
 
-  export { Header }
+export { Header };

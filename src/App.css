@@ -1,154 +1,288 @@
 #root {
-  max-width: 1280px;
-  --main-blue:#225A7A;
-  max-width:1288px;
-  margin:0 auto;
+  --main-blue: #225a7a;
+  margin: 0 auto;
+}
+
+input {
+  overflow: auto;
+}
+
+.overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  padding: 3rem;
+  background-color: white;
+  max-width: 30%;
 }
 
 .App {
-  padding:5% 20%;
-  min-width:585px;
-  display:grid;
-  grid-template-columns: 1fr 3fr;
+  display: grid;
+  grid-template-columns: 30% 70%;
   grid-template-areas:
-  'header header'
-  'sidebar content'
-  'controls controls'
+    "header header"
+    "sidebar content"
+    "controls controls"
+    "submit submit";
 }
 
 /* Header */
 
 #header {
-  display:flex;
-  min-height:118px;
-  align-items:center;
-  width:100%;
-  background-color:var(--main-blue);
-  height:108px;
-  padding-top:3.2rem;
-  text-align:left;
+  display: flex;
+  align-items: center;
+  background-color: var(--main-blue);
+  height: 108px;
+  padding-top: 3.2rem;
+  text-align: left;
   grid-area: header;
-  margin-bottom:4rem;
+  margin-bottom: 4rem;
 }
 
-.profile-pic{
-  border:2.2rem solid var(--main-blue);
-  border-radius:50%;
+.profile-pic {
+  position: relative;
 
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
 }
 
-#name-title-wrapper{
-  margin-left:2rem;
-  margin-bottom:3rem;
-  color:#fefefe;
-  display:flex;
-  flex-flow:column;
-  justify-content:flex-start;
+.profile-pic .profile-pic-overlay {
+  position: absolute;
+  height: 100%;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#name-title-wrapper .fullname-input{
-  font-size:4rem;
-  font-weight:500;
-  background:transparent;
-  outline:none;
-  border:none;
-  color:white;
-  margin:0;
-  padding:0;
+.profile-pic:hover .profile-pic-overlay {
+  opacity: 0.8;
 }
 
-.header-job-title{
-  color:white;
-  font-size:1.3rem;
-  width:auto;
+.profile-pic img {
+  border: 2.2rem solid var(--main-blue);
+  border-radius: 50%;
 }
 
-.editable-field{
-  cursor:pointer;
-  background:transparent;
-  outline:none;
-  border:none;
+#name-title-wrapper {
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  color: #fefefe;
+  display: flex;
+  margin-right: auto;
+  flex-flow: column;
+}
+
+#name-title-wrapper .fullname-input {
+  font-size: 4rem;
+  font-weight: 500;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.header-job-title {
+  color: white;
+  font-size: 1.3rem;
+  width: auto;
 }
 
 #name-title-wrapper h3 {
-  font-weight:400;
+  font-weight: 400;
   word-spacing: 0.1rem;
 }
 
 /* Sidebar */
 
-.sidebar{
+.sidebar {
   grid-area: sidebar;
-  display:flex;
-  flex-flow:column;
-  padding:0;
-  text-align:left;
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+  text-align: left;
 }
 
 .side-card {
-  border-bottom:1px solid var(--main-blue);
-  padding-bottom:1rem;
-  padding:2rem 3rem;
+  border-bottom: 1px solid var(--main-blue);
+  padding-bottom: 1rem;
+  padding: 2rem 3rem;
 }
 
 .side-card h2 {
-  font-weight:400;
-  font-size:2.5rem;
-  color:var(--main-blue);
-  
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: var(--main-blue);
 }
-.contact-card{
-  display:flex;
-  align-items:center;
-  margin-bottom:1rem;
+.contact-card {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
-.contact-icon{
-  margin-right:0.5rem;
+.contact-card > * {
+  height: 1.5rem;
 }
-.contact-card-value{
-  margin:0;
-  color:var(--main-blue);
-  font-weight:600;
+
+.contact-icon {
+  margin-right: 0.5rem;
+}
+
+.contact-card-value {
+  margin: 0;
+  color: var(--main-blue);
+  font-weight: 600;
+  width: 100%;
+}
+
+.contact-card-value:hover {
+  border: 1px solid var(--main-blue);
 }
 
 /* Education Card */
 
 .education-card > * {
-  margin:0;
+  margin: 0;
 }
 
 /* Language Card */
 
-.language-card ul{
-  padding:0;
-  list-style-type:none;
-  display:inline
+.language-card ul {
+  padding: 0;
+  list-style-type: none;
+  display: inline;
 }
 
 /*Main Content */
 
 .main-content-heading {
-  color:var(--main-blue);
-  font-weight:400;
-  font-size:3rem;
+  color: var(--main-blue);
+  font-weight: 400;
+  font-size: 3rem;
 }
 
 /* Summary Section */
 .main-content-card {
-  text-align:left;
-  max-width:80%;
-  margin:10% auto;
+  text-align: left;
+  margin: 10% 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Experience Section */
 
 .experience-card > * {
-  margin:0;
+  margin: 0;
 }
 
-.years-in-company{
-  font-weight:200;
-  margin-left:0.5rem;
+.xp-job-title {
+  font-size: 1.5rem;
+}
 
+.xp-company-name {
+  font-size: 1.2rem;
+}
+.experience-card {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 0.5rem;
+}
+
+.experience-card input {
+  border: none;
+  margin-bottom: 0.2rem;
+}
+
+.experience-card button,
+#add-experience {
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  transition: all 0.2s linear;
+}
+
+.experience-card button {
+  background-color: coral;
+}
+
+#add-experience {
+  background-color: azure;
+}
+
+.years-in-company {
+  font-weight: 200;
+  margin-left: 0.5rem;
+  text-transform: capitalize;
+}
+
+.editable-field {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  transition: all 0.2s linear;
+}
+
+.editable-field:hover {
+  background-color: rgba(80, 180, 255, 0.2) !important;
+}
+
+.submit-cv-btn {
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+/* Main Section Wrap*/
+.main-section-wrapper {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  outline: 1px solid red;
+  max-height: auto;
+}
+
+.xp-textarea {
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+@media print {
+  button {
+    display: none;
+  }
+  .xp-textarea {
+    resize: none;
+  }
 }
