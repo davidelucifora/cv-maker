@@ -7,17 +7,20 @@ import helpers from "./../helpers";
 class Contact extends React.Component {
   state = {
     phoneNumber: {
+      id: helpers.uid(),
       name: "phoneNumber",
       value: "123-345-789",
       icon: phoneIcon,
     },
     email: {
+      id: helpers.uid(),
       name: "email",
       value: "@gmail.com",
       icon: emailIcon,
     },
 
     linkedin: {
+      id: helpers.uid(),
       name: "linkedin",
       value: "/in/yourUserName",
       icon: linkedinIcon,
@@ -41,7 +44,7 @@ class Contact extends React.Component {
   render() {
     const listInputs = Object.keys(this.state).map((i) => {
       return (
-        <div className="contact-card" key={helpers.uid()}>
+        <div className="contact-card" key={this.state[i].id}>
           <img className="contact-icon" src={this.state[i].icon} />
           <input
             className="contact-card-value editable-field"
@@ -56,6 +59,7 @@ class Contact extends React.Component {
 
     return (
       <div id="contact" className="side-card">
+        <h2>Contact</h2>
         {listInputs}
       </div>
     );

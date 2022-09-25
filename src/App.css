@@ -46,17 +46,25 @@ input {
   padding-top: 3.2rem;
   text-align: left;
   grid-area: header;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .profile-pic {
   position: relative;
-
   border-radius: 50%;
   margin: 0;
   padding: 0;
 }
 
+.img-input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
 .profile-pic .profile-pic-overlay {
   position: absolute;
   height: 100%;
@@ -83,8 +91,15 @@ input {
 .profile-pic img {
   border: 2.2rem solid var(--main-blue);
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
-
+.cameraIcon {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: scale-down;
+}
 #name-title-wrapper {
   margin-left: 2rem;
   margin-bottom: 3rem;
@@ -181,12 +196,13 @@ input {
   color: var(--main-blue);
   font-weight: 400;
   font-size: 3rem;
+  margin-top: 0;
 }
 
 /* Summary Section */
 .main-content-card {
   text-align: left;
-  margin: 10% 10%;
+  margin: 5%;
   display: flex;
   flex-direction: column;
 }
@@ -221,18 +237,38 @@ input {
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background-color: transparent;
   transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.flex-xp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .experience-card button {
   background-color: coral;
+  opacity: 0;
+}
+
+.experience-card button:hover {
+  background-color: crimson;
+}
+
+.experience-card:hover .experience-card button {
+  opacity: 1;
 }
 
 #add-experience {
-  background-color: azure;
+  background-color: var(--main-blue);
+  color: white;
 }
 
+#add-experience:hover {
+  background-color: aquamarine;
+  color: var(--main-blue);
+}
 .years-in-company {
   font-weight: 200;
   margin-left: 0.5rem;
@@ -267,6 +303,11 @@ input {
   margin: 0;
   outline: 1px solid red;
   max-height: auto;
+}
+
+.main-section {
+  margin-top: 0;
+  padding: 0;
 }
 
 .xp-textarea {

@@ -5,15 +5,12 @@ class Header extends React.Component {
   state = {
     fullName: {
       value: "John Smith",
-      isEditing: false,
     },
     jobTitle: {
       value: "Front End Developer",
-      isEditing: false,
     },
     profilePic: {
       url: "https://xsgames.co/randomusers/avatar.php?g=male",
-      isEditing: false,
     },
   };
 
@@ -29,12 +26,18 @@ class Header extends React.Component {
     });
   }
 
-  handleUploadImg() {
-    this.setState({
-      ...this.state,
-      ...this.state.profilePic,
-      isEditing: true,
-    });
+  handleUploadImg(e) {
+    const file = e.target.files;
+
+    if (file) {
+      console.log(file);
+      this.setState({
+        ...this.state,
+        profilePic: {
+          url: URL.createObjectURL(file[0]),
+        },
+      });
+    }
   }
 
   render() {
@@ -43,14 +46,22 @@ class Header extends React.Component {
         <div className="profile-pic">
           <img
             src={this.state.profilePic.url}
-            onClick={(e) => this.handleUploadImg(e)}
             alt={this.state.fullName.value}
             width="150px"
             heigh="150px"
           />
-          <div className="profile-pic-overlay">
-            <img src={cameraIcon} />
+          <div
+            className="profile-pic-overlay"
+            onClick={() => document.getElementById("uploadImg").click()}
+          >
+            <img src={cameraIcon} className="cameraIcon" />
           </div>
+          <input
+            type="file"
+            className="img-input"
+            id="uploadImg"
+            onChange={(e) => this.handleUploadImg(e)}
+          ></input>
         </div>
         <div id="name-title-wrapper">
           <input
