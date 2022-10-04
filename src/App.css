@@ -177,17 +177,29 @@ input {
 }
 
 /* Education Card */
-
+.education-card {
+  margin-bottom: 1rem;
+}
 .education-card > * {
   margin: 0;
 }
+.flex-edu-card {
+  display: flex;
+}
 
-/* Language Card */
+.edu-edit-btn {
+  height: 1.5rem;
+  margin-left: 1rem;
+  border: none;
+  background-color: powderblue;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+/* Education Modal */
 
-.language-card ul {
-  padding: 0;
-  list-style-type: none;
-  display: inline;
+.eduModal {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 /*Main Content */

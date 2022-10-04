@@ -61,6 +61,7 @@ class Header extends React.Component {
             className="img-input"
             id="uploadImg"
             onChange={(e) => this.handleUploadImg(e)}
+            accept="image/*"
           ></input>
         </div>
         <div id="name-title-wrapper">
