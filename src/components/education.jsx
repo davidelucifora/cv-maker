@@ -127,7 +127,13 @@ class EducationModal extends React.Component {
         education: [...prevState.education, eduToEdit],
       }));
     }
-    console.log(this.state);
+    this.props.setData((prevState) => ({
+      ...prevState,
+      modal: {
+        ...prevState.modal,
+        isShown: false,
+      },
+    }));
   }
 
   render() {

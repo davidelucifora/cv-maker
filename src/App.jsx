@@ -37,8 +37,10 @@ class App extends React.Component {
           Ipsum chupami la cabra fava fava fava lettaLorem Ipsum chupami la cabra fava fava fava letta"
           />
           <Experience />
+          <button id="print-to-pdf" onClick={() => window.print()}>
+            Save to PDF
+          </button>
         </div>
-        <div className="controls"></div>
       </div>
     );
   }

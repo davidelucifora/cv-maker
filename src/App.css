@@ -28,12 +28,13 @@ input {
 
 .App {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% 60%;
   grid-template-areas:
     "header header"
     "sidebar content"
     "controls controls"
     "submit submit";
+  gap: 5%;
 }
 
 /* Header */
@@ -329,6 +330,16 @@ input {
   overflow: hidden;
   font-family: inherit;
   font-size: 1rem;
+}
+
+#print-to-pdf {
+  padding: 0.5rem 2rem;
+  border: none;
+  background-color: lightseagreen;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
 }
 
 @media print {
